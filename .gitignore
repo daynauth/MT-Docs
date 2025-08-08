@@ -204,3 +204,5 @@ __marimo__/
 
 ./data/test.parquet
 ./.DS_Store
+.DS_Store
+**/.DS_Store
