@@ -73,6 +73,10 @@ def run_batch_inference(
 
 def inference(platform: str = "mtllm", overwrite: bool = False) -> None:
     model_name = 'ollama/gemma3:12b-it-qat'
+    # model_name = 'gpt-4o-mini'
+    # define start and end index for batch inference
+    start = 0
+    end = 10
 
     if platform == "mtllm":
         infer_platform = MTLLMPlatform(model=model_name, infer_function=key_information_extraction)
@@ -124,7 +128,7 @@ def inference(platform: str = "mtllm", overwrite: bool = False) -> None:
         raise ValueError(f"Unsupported platform: {platform}")
 
 
-    run_batch_inference(infer_platform, 0, 10, overwrite=overwrite)
+    run_batch_inference(infer_platform, start, end, overwrite=overwrite)
 
 def main(platform: str, overwrite: bool) -> None:
     # inference(platform="mtllm")

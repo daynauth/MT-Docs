@@ -57,5 +57,7 @@ class LiteLLMPlatform(BasePlatform):
         )
 
         output = response.choices[0].message.content
+        reason = response.choices[0].finish_reason
+        print(reason)
         print(output)
         return json.loads(output)
