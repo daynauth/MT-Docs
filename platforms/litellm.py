@@ -40,10 +40,6 @@ class LiteLLMPlatform(BasePlatform):
             ]
         }
         self.messages.append(user_message)
-        print(self.messages)
-
-
-
 
 
     def run(self, image_url: str):
@@ -57,6 +53,7 @@ class LiteLLMPlatform(BasePlatform):
             response_format=self.schema,
             temperature=0,
             messages=self.messages,
+            max_tokens=1000
         )
 
         output = response.choices[0].message.content
