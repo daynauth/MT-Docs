@@ -117,6 +117,8 @@ def inference(platform: str = "mtllm", overwrite: bool = False) -> None:
 
             Return a single JSON object that includes all fields, with empty string where necessary.
             """
+
+        # todo: this is too icky, need to fix
         infer_platform = LiteLLMPlatform(model_name, human_prompt, system_prompt, dataclass_to_pydantic_model(Invoice))
     else:
         raise ValueError(f"Unsupported platform: {platform}")
